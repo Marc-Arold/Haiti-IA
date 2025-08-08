@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Haïti à l'ère de l'IA : La Singularity Créole - Marc Arold Rosemond
+    </title>
+    <meta
+      name="description"
+      content="Découvrez 'Haïti à l'ère de l'IA: La Singularity Créole' par Marc Arold Rosemond. Une feuille de route audacieuse pour la transformation d'Haïti grâce à l'intelligence artificielle."
+    />
+    <meta name="author" content="Marc Arold Rosemond" />
+
+    <!-- Polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icônes (pour les boutons et listes) -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- CSS Intégré -->
+    <style>
+      :root {
+          --bg-color: #f8f9fa; /* Blanc cassé très clair */
+          --text-color: #212529; /* Noir doux */
+          --primary-color: #003366; /* Bleu marine (rappel drapeau) */
+          --accent-color: #D4AF37; /* Or (rappel drapeau) */
+          --light-gray: #e9ecef;
+          --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+      }
+
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      html {
+          scroll-behavior: smooth;
+      }
+
+      body {
+          font-family: 'Inter', sans-serif;
+          background-color: var(--bg-color);
+          color: var(--text-color);
+          line-height: 1.8;
+          font-size: 17px;
+      }
+
+      .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 2rem;
+      }
+
+      h1, h2, h3 {
+          font-family: 'Lora', serif;
+          color: var(--primary-color);
+          line-height: 1.3;
+          font-weight: 700;
+      }
+
+      h1 { font-size: 3.2rem; }
+      h2 { font-size: 2.8rem; margin-bottom: 3rem; text-align: center; }
+      h3 { font-size: 1.4rem; margin-bottom: 1rem; color: var(--primary-color); }
+
+      p {
+          margin-bottom: 1.5rem;
+          font-weight: 300;
+          max-width: 700px; /* AMÉLIORATION: Limite la largeur des paragraphes pour la lisibilité */
+      }
+
+      section {
+          padding: 6rem 0;
+      }
+
+      .section-bg {
+          background-color: #ffffff;
+      }
+
+      .btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.9rem 2rem;
+          border-radius: 50px; /* Boutons arrondis */
+          text-decoration: none;
+          font-weight: 500;
+          transition: all 0.3s ease;
+          cursor: pointer;
+          border: 2px solid transparent;
+          margin: 0.5rem;
+      }
+
+      .btn-primary {
+          background-color: var(--primary-color);
+          color: #fff;
+      }
+      .btn-primary:hover {
+          background-color: #002244;
+          transform: translateY(-3px);
+          box-shadow: 0 4px 10px rgba(0, 51, 102, 0.2);
+      }
+
+      .btn-secondary {
+          background-color: transparent;
+          color: var(--primary-color);
+          border-color: var(--primary-color);
+      }
+      .btn-secondary:hover {
+          background-color: var(--primary-color);
+          color: #fff;
+      }
+
+      /* Header & Navigation */
+      .main-header {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          z-index: 1000;
+          background-color: rgba(248, 249, 250, 0.85);
+          backdrop-filter: blur(12px);
+          border-bottom: 1px solid var(--light-gray);
+          transition: box-shadow 0.3s;
+      }
+      .main-header.scrolled {
+          box-shadow: var(--card-shadow);
+      }
+
+      .navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 75px;
+      }
+
+      .navbar .logo {
+          font-family: 'Lora', serif;
+          font-size: 1.6rem;
+          font-weight: 700;
+          color: var(--primary-color);
+          text-decoration: none;
+      }
+      .navbar .logo span {
+          color: var(--accent-color);
+      }
+
+      .navbar .nav-links {
+          list-style: none;
+          display: flex;
+      }
+
+      .navbar .nav-links li {
+          margin-left: 2.5rem;
+      }
+
+      .navbar .nav-links a {
+          text-decoration: none;
+          color: var(--text-color);
+          font-weight: 500;
+          position: relative;
+          padding: 5px 0;
+      }
+      .navbar .nav-links a::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background-color: var(--accent-color);
+          transition: width 0.3s;
+      }
+      .navbar .nav-links a:hover::after {
+          width: 100%;
+      }
+
+      .hamburger {
+          display: none;
+          cursor: pointer;
+      }
+
+      .hamburger .bar {
+          display: block;
+          width: 28px;
+          height: 3px;
+          margin: 6px auto;
+          background-color: var(--primary-color);
+          transition: all 0.3s ease-in-out;
+          border-radius: 2px;
+      }
+
+      /* Hero Section */
+      #hero {
+          padding-top: 75px; /* Espace pour le header fixe */
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+      }
+      .hero-grid {
+          display: grid;
+          /* AMÉLIORATION: Ajustement des colonnes pour un meilleur équilibre */
+          grid-template-columns: 1.2fr 0.8fr;
+          align-items: center;
+          gap: 5rem;
+      }
+      .hero-text .subtitle {
+          font-weight: 700;
+          color: var(--accent-color);
+          margin-bottom: 1rem;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+      }
+      .hero-text p {
+          font-size: 1.2rem;
+          color: #555;
+          max-width: 600px; /* AMÉLIORATION: Limite la largeur du texte du hero */
+      }
+      .hero-image {
+          text-align: center;
+      }
+      .book-cover-placeholder {
+          width: 100%;
+          max-width: 350px;
+          aspect-ratio: 2 / 3;
+          background-color: var(--light-gray);
+          border: 10px solid #fff;
+          box-shadow: var(--card-shadow);
+          border-radius: 8px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 2rem;
+          text-align: center;
+          font-family: 'Lora', serif;
+      }
+      .book-cover-placeholder h3 { font-size: 1.8rem; }
+      .book-cover-placeholder p { font-size: 1rem; margin-top: 0.5rem; }
+
+
+      /* Section "Pourquoi ce livre ?" */
+      #why .why-content {
+          max-width: 800px;
+          margin: 0 auto;
+          text-align: center;
+      }
+      #why .why-content p {
+          margin-left: auto; /* Centre le paragraphe si sa largeur est limitée */
+          margin-right: auto;
+      }
+
+      /* Section "Piliers" */
+      .pillars-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 2.5rem;
+          margin-top: 4rem;
+      }
+      .pillar-card {
+          text-align: center;
+      }
+      .pillar-card .icon-wrapper {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          background-color: var(--light-gray);
+          margin-bottom: 1.5rem;
+          color: var(--primary-color);
+          transition: background-color 0.3s, color 0.3s;
+      }
+      .pillar-card:hover .icon-wrapper {
+          background-color: var(--primary-color);
+          color: #fff;
+      }
+      .pillar-card p {
+          font-size: 1rem;
+          max-width: 100%;
+          margin-left: auto;
+          margin-right: auto;
+      }
+
+      /* Section Extraits */
+      .quotes-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2.5rem;
+      }
+      .quote-card {
+          background-color: #ffffff;
+          padding: 2.5rem;
+          border-radius: 12px;
+          box-shadow: var(--card-shadow);
+          border-top: 4px solid var(--primary-color);
+          transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .quote-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+      .quote-card p {
+          font-family: 'Lora', serif;
+          font-size: 1.2rem;
+          font-style: italic;
+          margin-bottom: 0;
+          position: relative;
+          padding-left: 2.5rem;
+      }
+      .quote-card p::before {
+          content: '“';
+          font-family: 'Lora', serif;
+          font-size: 4rem;
+          color: var(--accent-color);
+          position: absolute;
+          left: -0.5rem;
+          top: -1.5rem;
+      }
+
+      /* Section CTA Final */
+      #final-cta {
+          text-align: center;
+      }
+      #final-cta .container {
+          max-width: 800px;
+      }
+      #final-cta .container p {
+          margin-left: auto;
+          margin-right: auto;
+      }
+
+      /* Footer */
+      .main-footer {
+          padding: 4rem 0 2rem 0;
+          background-color: #002244; /* Un bleu un peu plus clair que le primary */
+          color: var(--bg-color);
+      }
+      .footer-content {
+          text-align: center;
+          max-width: 600px;
+          margin: 0 auto;
+      }
+      .footer-logo {
+          font-family: 'Lora', serif;
+          font-size: 2rem;
+          font-weight: 700;
+          color: #fff;
+          margin-bottom: 1rem;
+      }
+      .footer-logo span {
+          color: var(--accent-color);
+      }
+      .footer-text {
+          color: #ccc;
+          margin-bottom: 2rem;
+      }
+      .social-links {
+          display: flex;
+          justify-content: center;
+          gap: 1.5rem;
+          margin-bottom: 2.5rem;
+      }
+      .social-links a {
+          color: #fff;
+          transition: color 0.3s, transform 0.3s;
+      }
+      .social-links a:hover {
+          color: var(--accent-color);
+          transform: translateY(-3px);
+      }
+      .copyright {
+          font-size: 0.9rem;
+          color: #aaa;
+          border-top: 1px solid #004488;
+          padding-top: 2rem;
+          margin-top: 2rem;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+          .hero-grid {
+              grid-template-columns: 1fr;
+              text-align: center;
+              gap: 2rem;
+          }
+          .hero-text {
+              order: 2;
+          }
+          .hero-image {
+              order: 1;
+              margin-bottom: 2rem;
+          }
+          .hero-text p {
+              margin-left: auto;
+              margin-right: auto;
+          }
+          .book-cover-placeholder {
+              margin: 0 auto;
+          }
+          .quotes-grid {
+              grid-template-columns: 1fr;
+          }
+      }
+
+      @media (max-width: 768px) {
+          h1 { font-size: 2.5rem; }
+          h2 { font-size: 2.2rem; }
+          body { font-size: 16px; }
+
+          .navbar .nav-links {
+              position: fixed;
+              left: -100%;
+              top: 75px;
+              flex-direction: column;
+              background-color: var(--bg-color);
+              width: 100%;
+              height: calc(100vh - 75px);
+              text-align: center;
+              transition: 0.3s;
+              padding-top: 2rem;
+          }
+          .navbar .nav-links.active {
+              left: 0;
+          }
+          .navbar .nav-links li {
+              margin: 1.5rem 0;
+          }
+          .hamburger {
+              display: block;
+          }
+          .hamburger.active .bar:nth-child(2) {
+              opacity: 0;
+          }
+          .hamburger.active .bar:nth-child(1) {
+              transform: translateY(9px) rotate(45deg);
+          }
+          .hamburger.active .bar:nth-child(3) {
+              transform: translateY(-9px) rotate(-45deg);
+          }
+
+          section {
+              padding: 4rem 1rem; /* Ajout d'un padding latéral sur mobile */
+          }
+      }
+    </style>
+
+    <!-- Script d'analyse (Analytics) - À configurer -->
+    <!--
+        INSTRUCTIONS POUR LES STATISTIQUES :
+        Pour un suivi simple, gratuit et respectueux de la vie privée, 
+        vous pouvez utiliser un service comme GoatCounter ou Plausible.
+        1. Créez un compte gratuit sur https://www.goatcounter.com/
+        2. Vous obtiendrez une ligne de code similaire à celle ci-dessous.
+        3. Remplacez "VOTRE_CODE" par le code de votre site.
+    -->
+    <script
+      data-goatcounter="https://VOTRE_CODE.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="container navbar">
+        <a href="#" class="logo">Singularity<span>.</span>Créole</a>
+        <ul class="nav-links">
+          <li><a href="#hero">Accueil</a></li>
+          <li><a href="#why">La Vision</a></li>
+          <li><a href="#pillars">Piliers</a></li>
+          <li><a href="#excerpts">Extraits</a></li>
+          <li><a href="#final-cta">Télécharger</a></li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Section Hero -->
+      <section id="hero">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-text">
+              <p class="subtitle">Un plan de bataille pour l'avenir</p>
+              <h1>Haïti à l'ère de l'Intelligence Artificielle</h1>
+              <p>
+                L'IA n'est pas une simple vague, elle redessine les continents
+                du pouvoir et de la richesse. C'est dans le chaos créateur de ce
+                basculement que se niche l'opportunité la plus spectaculaire
+                pour Haïti.
+              </p>
+              <div class="cta-buttons">
+                <!-- INSTRUCTION: Placez votre fichier PDF dans le même dossier que ce fichier HTML et nommez-le "Livre_IA_Singularity_Creole.pdf" -->
+                <a
+                  href="https://drive.google.com/file/d/1I7kT0XRQ5DnbCd5tQA_ko51MIi0S0FRu/view?usp=sharing"
+                  download
+                  target="_blank"
+                  class="btn btn-primary"
+                >
+                  <i data-feather="download"></i>Télécharger le Livre
+                </a>
+                <a
+                  href="https://buymeacoffee.com/marosemond"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
+                  <i data-feather="coffee"></i>Soutenir l'Auteur
+                </a>
+              </div>
+            </div>
+            <div class="hero-image">
+              <div class="book-cover-placeholder">
+                <!-- Ceci est un placeholder. Remplacez-le par une image de votre couverture si vous en avez une.
+                             Exemple: <img src="votre-couverture.jpg" alt="Couverture du livre" style="width:100%; border-radius: 8px;"> 
+                             -->
+                <!-- <h3>La Singularity Créole</h3>
+                <p>Marc Arold Rosemond</p> -->
+                <img
+                  src="https://drive.google.com/file/d/1ASV0wfS2esp9Xe2fX6e1WWziYBTiqxCd/view?usp=sharing"
+                  alt="Couverture du livre"
+                  style="width:100%; border-radius: 8px;"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section "Pourquoi ce livre ?" -->
+      <section id="why" class="section-bg">
+        <div class="container why-content">
+          <h2>Pourquoi ce livre ?</h2>
+          <p>
+            Ce livre part d'un postulat radical : la misère d’Haïti n'est pas
+            une fatalité, mais une construction historique qui peut être
+            déconstruite. Il refuse la paresse des propositions génériques et
+            propose une feuille de route stratégique pour faire d'Haïti un
+            laboratoire du XXIe siècle, un acteur respecté sur la scène mondiale
+            de l'IA.
+          </p>
+          <p>
+            C'est un appel à la mobilisation de toutes les forces vives de la
+            nation pour saisir une opportunité qui ne se présentera qu'une seule
+            fois.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section "Piliers" -->
+      <section id="pillars">
+        <div class="container">
+          <h2>Les Piliers de la Transformation</h2>
+          <div class="pillars-grid">
+            <div class="pillar-card">
+              <div class="icon-wrapper">
+                <i data-feather="globe" style="width: 36px; height: 36px;"></i>
+              </div>
+              <h3>Leadership & Géopolitique</h3>
+              <p>
+                Forger une équipe de rupture et un positionnement stratégique
+                pour attirer les investissements et neutraliser les forces du
+                chaos.
+              </p>
+            </div>
+            <div class="pillar-card">
+              <div class="icon-wrapper">
+                <i data-feather="users" style="width: 36px; height: 36px;"></i>
+              </div>
+              <h3>Capital Humain & Diaspora</h3>
+              <p>
+                Transformer l'éducation et mobiliser le talent de la diaspora
+                pour créer une génération de natifs de l'IA et d'innovateurs.
+              </p>
+            </div>
+            <div class="pillar-card">
+              <div class="icon-wrapper">
+                <i data-feather="cpu" style="width: 36px; height: 36px;"></i>
+              </div>
+              <h3>Technologie & Souveraineté</h3>
+              <p>
+                Bâtir des infrastructures modernes et une régulation
+                intelligente pour garantir une autonomie numérique et une
+                croissance inclusive.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Extraits Pertinents -->
+      <section id="excerpts" class="section-bg">
+        <div class="container">
+          <h2>Au Cœur de la Vision</h2>
+          <div class="quotes-grid">
+            <div class="quote-card">
+              <p>
+                La diaspora haïtienne [...] constitue en réalité le plus grand
+                gisement de capital humain, intellectuel et financier qu'Haïti
+                n'ait jamais pleinement activé.
+              </p>
+            </div>
+            <div class="quote-card">
+              <p>
+                L'avantage Compétitif de la Table Rase (Blank Slate) : L'absence
+                de systèmes hérités lourds, coûteux et rigides est une chance
+                inestimable.
+              </p>
+            </div>
+            <div class="quote-card">
+              <p>
+                La ressource stratégique qui définira la puissance [...] n'est
+                plus le pétrole, mais la donnée. Le capital le plus précieux
+                n'est plus l'usine, mais l'algorithme.
+              </p>
+            </div>
+            <div class="quote-card">
+              <p>
+                Installer l’IA sur les structures haïtiennes existantes, c’est
+                greffer un moteur de F1 sur une charrette aux roues fêlées [...]
+                L'accélération brutale [...] ne produit pas le mouvement, mais
+                l'éclatement.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Finale CTA (Téléchargement) -->
+      <section id="final-cta">
+        <div class="container">
+          <h2>Devenez un Architecte du Futur</h2>
+          <p>
+            La Singularité Créole n'est pas une utopie, mais une possibilité
+            concrète qui dépend d'une vision claire, d'une volonté inébranlable
+            et d'une action concertée. Téléchargez le livre, partagez la vision,
+            et rejoignez le mouvement.
+          </p>
+          <div class="cta-buttons">
+            <a
+              href="https://drive.google.com/file/d/1I7kT0XRQ5DnbCd5tQA_ko51MIi0S0FRu/view?usp=sharing"
+              download
+              target="_blank"
+              class="btn btn-primary"
+            >
+              <i data-feather="book-open"></i>Lire le Manifeste (PDF)
+            </a>
+            <a
+              href="https://buymeacoffee.com/marosemond"
+              target="_blank"
+              class="btn btn-secondary"
+            >
+              <i data-feather="gift"></i>Faire un Don
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="container footer-content">
+        <div class="footer-logo">Singularity<span>.</span>Créole</div>
+        <p class="footer-text">
+          Un projet pour Haïti et la foi en son avenir. Rejoignez la
+          conversation et contribuez à bâtir une nouvelle histoire.
+        </p>
+        <div class="social-links">
+          <!-- INSTRUCTION: Remplacez les "#" par vos vrais liens -->
+          <a
+            href="https://www.linkedin.com/in/marc-arold-rosemond/"
+            target="_blank"
+            title="LinkedIn"
+            ><i data-feather="linkedin"></i
+          ></a>
+          <a href="https://x.com/arold_marc" target="_blank" title="X (Twitter)"
+            ><i data-feather="twitter"></i
+          ></a>
+          <a href="#" target="_blank" title="Facebook"
+            ><i data-feather="facebook"></i
+          ></a>
+          <a href="mailto:rosemondmarcarold@gmail.com" title="Email"
+            ><i data-feather="mail"></i
+          ></a>
+        </div>
+        <p class="copyright">
+          &copy; 2025 Marc Arold Rosemond. Tous droits réservés.
+        </p>
+      </div>
+    </footer>
+
+    <!-- JavaScript Intégré -->
+    <script>
+      // Initialisation des icônes Feather
+      feather.replace();
+
+      // Menu mobile
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+
+      hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          navLinks.classList.toggle('active');
+      });
+
+      document.querySelectorAll('.nav-links a').forEach(link => {
+          link.addEventListener('click', () => {
+              hamburger.classList.remove('active');
+              navLinks.classList.remove('active');
+          });
+      });
+
+      // Effet d'ombre sur la barre de navigation au défilement
+      const header = document.querySelector('.main-header');
+      window.addEventListener('scroll', () => {
+          if (window.scrollY > 50) {
+              header.classList.add('scrolled');
+          } else {
+              header.classList.remove('scrolled');
+          }
+      });
+    </script>
+  </body>
+</html>
