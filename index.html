@@ -11,6 +11,16 @@
       content="Découvrez 'Haïti à l'ère de l'IA: La Singularity Créole' par Marc Arold Rosemond. Une feuille de route audacieuse pour la transformation d'Haïti grâce à l'intelligence artificielle."
     />
     <meta name="author" content="Marc Arold Rosemond" />
+    <meta
+      name="keywords"
+      content="Haïti, intelligence artificielle, IA, Singularity Créole, Marc Arold Rosemond, livre, Développement, Gépolitique, politique, sécurité, transformation"
+    />
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAzUExURQAAAD8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/PwD/HPUAAACYSURBVDjLnZPbDoAgDERRK7Xq///sVuO6QIJkCzOzM8+ZMzO6q3e1K1lJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiT5B4B3nB3c0q+7AAAAAElFTkSuQmCC"
+    />
 
     <!-- Polices Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,6 +32,21 @@
 
     <!-- Icônes (pour les boutons et listes) -->
     <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Google Analytics (GA4) -->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-TGNP97VL');
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
 
     <!-- CSS Intégré -->
     <style>
@@ -72,7 +97,7 @@
       p {
           margin-bottom: 1.5rem;
           font-weight: 300;
-          max-width: 700px; /* AMÉLIORATION: Limite la largeur des paragraphes pour la lisibilité */
+          max-width: 700px;
       }
 
       section {
@@ -88,13 +113,15 @@
           align-items: center;
           gap: 0.5rem;
           padding: 0.9rem 2rem;
-          border-radius: 50px; /* Boutons arrondis */
+          border-radius: 50px;
           text-decoration: none;
           font-weight: 500;
           transition: all 0.3s ease;
           cursor: pointer;
           border: 2px solid transparent;
           margin: 0.5rem;
+          min-width: 48px;
+          min-height: 48px;
       }
 
       .btn-primary {
@@ -198,14 +225,13 @@
 
       /* Hero Section */
       #hero {
-          padding-top: 75px; /* Espace pour le header fixe */
+          padding-top: 75px;
           min-height: 100vh;
           display: flex;
           align-items: center;
       }
       .hero-grid {
           display: grid;
-          /* AMÉLIORATION: Ajustement des colonnes pour un meilleur équilibre */
           grid-template-columns: 1.2fr 0.8fr;
           align-items: center;
           gap: 5rem;
@@ -219,8 +245,8 @@
       }
       .hero-text p {
           font-size: 1.2rem;
-          color: #555;
-          max-width: 600px; /* AMÉLIORATION: Limite la largeur du texte du hero */
+          color: #333; /* Amélioration contraste */
+          max-width: 600px;
       }
       .hero-image {
           text-align: center;
@@ -244,7 +270,6 @@
       .book-cover-placeholder h3 { font-size: 1.8rem; }
       .book-cover-placeholder p { font-size: 1rem; margin-top: 0.5rem; }
 
-
       /* Section "Pourquoi ce livre ?" */
       #why .why-content {
           max-width: 800px;
@@ -252,7 +277,7 @@
           text-align: center;
       }
       #why .why-content p {
-          margin-left: auto; /* Centre le paragraphe si sa largeur est limitée */
+          margin-left: auto;
           margin-right: auto;
       }
 
@@ -340,7 +365,7 @@
       /* Footer */
       .main-footer {
           padding: 4rem 0 2rem 0;
-          background-color: #002244; /* Un bleu un peu plus clair que le primary */
+          background-color: #002244;
           color: var(--bg-color);
       }
       .footer-content {
@@ -384,6 +409,19 @@
           margin-top: 2rem;
       }
 
+      /* Navigation mobile améliorée */
+      .nav-links {
+          transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+          transform: translateX(-100%);
+          opacity: 0;
+      }
+      .nav-links.active {
+          transform: translateX(0);
+          opacity: 1;
+          background-color: rgba(248, 249, 250, 0.95);
+          backdrop-filter: blur(8px);
+      }
+
       /* Responsive Design */
       @media (max-width: 992px) {
           .hero-grid {
@@ -417,21 +455,18 @@
 
           .navbar .nav-links {
               position: fixed;
-              left: -100%;
+              left: 0;
               top: 75px;
               flex-direction: column;
-              background-color: var(--bg-color);
+              background-color: transparent;
               width: 100%;
               height: calc(100vh - 75px);
               text-align: center;
-              transition: 0.3s;
               padding-top: 2rem;
           }
           .navbar .nav-links.active {
-              left: 0;
-          }
-          .navbar .nav-links li {
-              margin: 1.5rem 0;
+              transform: translateX(0);
+              opacity: 1;
           }
           .hamburger {
               display: block;
@@ -447,42 +482,64 @@
           }
 
           section {
-              padding: 4rem 1rem; /* Ajout d'un padding latéral sur mobile */
+              padding: 4rem 1rem;
           }
       }
     </style>
-
-    <!-- Script d'analyse (Analytics) - À configurer -->
-    <!--
-        INSTRUCTIONS POUR LES STATISTIQUES :
-        Pour un suivi simple, gratuit et respectueux de la vie privée, 
-        vous pouvez utiliser un service comme GoatCounter ou Plausible.
-        1. Créez un compte gratuit sur https://www.goatcounter.com/
-        2. Vous obtiendrez une ligne de code similaire à celle ci-dessous.
-        3. Remplacez "VOTRE_CODE" par le code de votre site.
-    -->
-    <script
-      data-goatcounter="https://VOTRE_CODE.goatcounter.com/count"
-      async
-      src="//gc.zgo.at/count.js"
-    ></script>
   </head>
   <body>
     <header class="main-header">
       <div class="container navbar">
         <a href="#" class="logo">Singularity<span>.</span>Créole</a>
-        <ul class="nav-links">
-          <li><a href="#hero">Accueil</a></li>
-          <li><a href="#why">La Vision</a></li>
-          <li><a href="#pillars">Piliers</a></li>
-          <li><a href="#excerpts">Extraits</a></li>
-          <li><a href="#final-cta">Télécharger</a></li>
-        </ul>
-        <div class="hamburger">
+        <nav aria-label="Navigation principale">
+          <ul class="nav-links" id="nav-links">
+            <li>
+              <a
+                href="#hero"
+                onclick="gtag('event', 'nav_click', { 'event_category': 'Navigation', 'event_label': 'Accueil' })"
+                >Accueil</a
+              >
+            </li>
+            <li>
+              <a
+                href="#why"
+                onclick="gtag('event', 'nav_click', { 'event_category': 'Navigation', 'event_label': 'La Vision' })"
+                >La Vision</a
+              >
+            </li>
+            <li>
+              <a
+                href="#pillars"
+                onclick="gtag('event', 'nav_click', { 'event_category': 'Navigation', 'event_label': 'Piliers' })"
+                >Piliers</a
+              >
+            </li>
+            <li>
+              <a
+                href="#excerpts"
+                onclick="gtag('event', 'nav_click', { 'event_category': 'Navigation', 'event_label': 'Extraits' })"
+                >Extraits</a
+              >
+            </li>
+            <li>
+              <a
+                href="#final-cta"
+                onclick="gtag('event', 'nav_click', { 'event_category': 'Navigation', 'event_label': 'Télécharger' })"
+                >Télécharger</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <button
+          class="hamburger"
+          aria-label="Ouvrir/fermer le menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
-        </div>
+        </button>
       </div>
     </header>
 
@@ -501,12 +558,12 @@
                 pour Haïti.
               </p>
               <div class="cta-buttons">
-                <!-- INSTRUCTION: Placez votre fichier PDF dans le même dossier que ce fichier HTML et nommez-le "Livre_IA_Singularity_Creole.pdf" -->
                 <a
                   href="https://drive.google.com/file/d/1I7kT0XRQ5DnbCd5tQA_ko51MIi0S0FRu/view?usp=sharing"
                   download
                   target="_blank"
                   class="btn btn-primary"
+                  onclick="gtag('event', 'download_book', { 'event_category': 'CTA', 'event_label': 'Download Book Hero' })"
                 >
                   <i data-feather="download"></i>Télécharger le Livre
                 </a>
@@ -514,6 +571,7 @@
                   href="https://buymeacoffee.com/marosemond"
                   target="_blank"
                   class="btn btn-secondary"
+                  onclick="gtag('event', 'support_author', { 'event_category': 'CTA', 'event_label': 'Support Author Hero' })"
                 >
                   <i data-feather="coffee"></i>Soutenir l'Auteur
                 </a>
@@ -521,14 +579,9 @@
             </div>
             <div class="hero-image">
               <div class="book-cover-placeholder">
-                <!-- Ceci est un placeholder. Remplacez-le par une image de votre couverture si vous en avez une.
-                             Exemple: <img src="votre-couverture.jpg" alt="Couverture du livre" style="width:100%; border-radius: 8px;"> 
-                             -->
-                <!-- <h3>La Singularity Créole</h3>
-                <p>Marc Arold Rosemond</p> -->
                 <img
                   src="page de couverture.jpg"
-                  alt="Couverture du livre"
+                  alt="Couverture du livre Haïti à l'ère de l'IA : La Singularity Créole"
                   style="width:100%; border-radius: 8px;"
                 />
               </div>
@@ -598,7 +651,7 @@
         </div>
       </section>
 
-      <!-- Section Extraits Pertinents -->
+      <!-- Section Extraits -->
       <section id="excerpts" class="section-bg">
         <div class="container">
           <h2>Au Cœur de la Vision</h2>
@@ -636,7 +689,7 @@
         </div>
       </section>
 
-      <!-- Section Finale CTA (Téléchargement) -->
+      <!-- Section Finale CTA -->
       <section id="final-cta">
         <div class="container">
           <h2>Devenez un Architecte du Futur</h2>
@@ -652,6 +705,7 @@
               download
               target="_blank"
               class="btn btn-primary"
+              onclick="gtag('event', 'download_book', { 'event_category': 'CTA', 'event_label': 'Download Book Final CTA' })"
             >
               <i data-feather="book-open"></i>Lire le Manifeste (PDF)
             </a>
@@ -659,6 +713,7 @@
               href="https://buymeacoffee.com/marosemond"
               target="_blank"
               class="btn btn-secondary"
+              onclick="gtag('event', 'support_author', { 'event_category': 'CTA', 'event_label': 'Support Author Final CTA' })"
             >
               <i data-feather="gift"></i>Faire un Don
             </a>
@@ -674,21 +729,25 @@
           Un projet pour Haïti et la foi en son avenir. Rejoignez la
           conversation et contribuez à bâtir une nouvelle histoire.
         </p>
-        <div class="social-links">
-          <!-- INSTRUCTION: Remplacez les "#" par vos vrais liens -->
+        <div class="social-links" role="navigation" aria-label="Liens sociaux">
           <a
             href="https://www.linkedin.com/in/marc-arold-rosemond/"
             target="_blank"
             title="LinkedIn"
+            onclick="gtag('event', 'social_click', { 'event_category': 'Social', 'event_label': 'LinkedIn' })"
             ><i data-feather="linkedin"></i
           ></a>
-          <a href="https://x.com/arold_marc" target="_blank" title="X (Twitter)"
+          <a
+            href="https://x.com/arold_marc"
+            target="_blank"
+            title="X (Twitter)"
+            onclick="gtag('event', 'social_click', { 'event_category': 'Social', 'event_label': 'Twitter' })"
             ><i data-feather="twitter"></i
           ></a>
-          <a href="#" target="_blank" title="Facebook"
-            ><i data-feather="facebook"></i
-          ></a>
-          <a href="mailto:rosemondmarcarold@gmail.com" title="Email"
+          <a
+            href="mailto:rosemondmarcarold@gmail.com"
+            title="Email"
+            onclick="gtag('event', 'social_click', { 'event_category': 'Social', 'event_label': 'Email' })"
             ><i data-feather="mail"></i
           ></a>
         </div>
@@ -708,12 +767,15 @@
       const navLinks = document.querySelector('.nav-links');
 
       hamburger.addEventListener('click', () => {
+          const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+          hamburger.setAttribute('aria-expanded', !isExpanded);
           hamburger.classList.toggle('active');
           navLinks.classList.toggle('active');
       });
 
       document.querySelectorAll('.nav-links a').forEach(link => {
           link.addEventListener('click', () => {
+              hamburger.setAttribute('aria-expanded', 'false');
               hamburger.classList.remove('active');
               navLinks.classList.remove('active');
           });
