@@ -787,7 +787,47 @@
     </footer>
 
     <!-- JavaScript Intégré -->
+   <!-- Cookie Consent and Google Analytics Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
     <script>
+      window.cookieconsent.initialise({
+        palette: {
+          popup: { background: "#003366" },
+          button: { background: "#D4AF37" }
+        },
+        content: {
+          message: "Ce site utilise des cookies pour analyser le trafic et améliorer votre expérience.",
+          dismiss: "Accepter",
+          link: "En savoir plus",
+          href: "#privacy"
+        },
+        onInitialise: function(status) {
+          if (this.hasConsented()) {
+            loadGoogleAnalytics();
+          }
+        },
+        onStatusChange: function(status) {
+          if (this.hasConsented()) {
+            loadGoogleAnalytics();
+          }
+        }
+      });
+
+      function loadGoogleAnalytics() {
+        if (!window.googleAnalyticsLoaded) {
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+          document.head.appendChild(script);
+
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-XXXXXXXXXX');
+          window.googleAnalyticsLoaded = true;
+        }
+      }
+
       // Initialisation des icônes Feather
       feather.replace();
 
